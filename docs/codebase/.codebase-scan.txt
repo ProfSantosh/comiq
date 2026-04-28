@@ -1,0 +1,445 @@
+
+=== DIRECTORY TREE (max depth 3, source files only) ===
+.agents
+.agents\skills
+.agents\skills\acquire-codebase-knowledge
+.agents\skills\acquire-codebase-knowledge\assets
+.agents\skills\acquire-codebase-knowledge\references
+.agents\skills\acquire-codebase-knowledge\scripts
+.agents\skills\acquire-codebase-knowledge\SKILL.md
+.agents\skills\architecture-blueprint-generator
+.agents\skills\architecture-blueprint-generator\SKILL.md
+.agents\skills\copilot-instructions-blueprint-generator
+.agents\skills\copilot-instructions-blueprint-generator\SKILL.md
+.agents\skills\create-readme
+.agents\skills\create-readme\SKILL.md
+.agents\skills\github-copilot-starter
+.agents\skills\github-copilot-starter\SKILL.md
+.agents\skills\technology-stack-blueprint-generator
+.agents\skills\technology-stack-blueprint-generator\SKILL.md
+.agents\skills\web-coder
+.agents\skills\web-coder\references
+.agents\skills\web-coder\SKILL.md
+.github
+.github\agents
+.github\agents\accessibility-runtime-tester.agent.md
+.github\agents\accessibility.agent.md
+.github\agents\adr-generator.agent.md
+.github\agents\context-architect.agent.md
+.github\agents\frontend-performance-investigator.agent.md
+.github\agents\se-security-reviewer.agent.md
+.github\agents\speckit.analyze.agent.md
+.github\agents\speckit.checklist.agent.md
+.github\agents\speckit.clarify.agent.md
+.github\agents\speckit.constitution.agent.md
+.github\agents\speckit.git.commit.agent.md
+.github\agents\speckit.git.feature.agent.md
+.github\agents\speckit.git.initialize.agent.md
+.github\agents\speckit.git.remote.agent.md
+.github\agents\speckit.git.validate.agent.md
+.github\agents\speckit.implement.agent.md
+.github\agents\speckit.plan.agent.md
+.github\agents\speckit.specify.agent.md
+.github\agents\speckit.tasks.agent.md
+.github\agents\speckit.taskstoissues.agent.md
+.github\copilot-instructions.md
+.github\instructions
+.github\instructions\a11y.instructions.md
+.github\instructions\context-engineering.instructions.md
+.github\instructions\github-actions-ci-cd-best-practices.instructions.md
+.github\instructions\performance-optimization.instructions.md
+.github\instructions\playwright-typescript.instructions.md
+.github\instructions\security-and-owasp.instructions.md
+.github\instructions\tailwind-v4-vite.instructions.md
+.github\prompts
+.github\prompts\speckit.analyze.prompt.md
+.github\prompts\speckit.checklist.prompt.md
+.github\prompts\speckit.clarify.prompt.md
+.github\prompts\speckit.constitution.prompt.md
+.github\prompts\speckit.git.commit.prompt.md
+.github\prompts\speckit.git.feature.prompt.md
+.github\prompts\speckit.git.initialize.prompt.md
+.github\prompts\speckit.git.remote.prompt.md
+.github\prompts\speckit.git.validate.prompt.md
+.github\prompts\speckit.implement.prompt.md
+.github\prompts\speckit.plan.prompt.md
+.github\prompts\speckit.specify.prompt.md
+.github\prompts\speckit.tasks.prompt.md
+.github\prompts\speckit.taskstoissues.prompt.md
+.github\workflows
+.github\workflows\ci.yml
+.gitignore
+.npmrc
+.specify
+.specify\extensions
+.specify\extensions\.registry
+.specify\extensions\git
+.specify\extensions\git\commands
+.specify\extensions\git\config-template.yml
+.specify\extensions\git\extension.yml
+.specify\extensions\git\git-config.yml
+.specify\extensions\git\README.md
+.specify\extensions\git\scripts
+.specify\extensions.yml
+.specify\feature.json
+.specify\init-options.json
+.specify\integration.json
+.specify\integrations
+.specify\integrations\copilot.manifest.json
+.specify\integrations\speckit.manifest.json
+.specify\memory
+.specify\memory\constitution.md
+.specify\scripts
+.specify\scripts\powershell
+.specify\scripts\powershell\check-prerequisites.ps1
+.specify\scripts\powershell\common.ps1
+.specify\scripts\powershell\create-new-feature.ps1
+.specify\scripts\powershell\setup-plan.ps1
+.specify\templates
+.specify\templates\checklist-template.md
+.specify\templates\constitution-template.md
+.specify\templates\plan-template.md
+.specify\templates\spec-template.md
+.specify\templates\tasks-template.md
+.specify\workflows
+.specify\workflows\speckit
+.specify\workflows\speckit\workflow.yml
+.specify\workflows\workflow-registry.json
+.vscode
+.vscode\settings.json
+assests
+assests\image.png
+assests\logo.png
+CLAUDE.md
+dev-dist
+dev-dist\registerSW.js
+dev-dist\sw.js
+dev-dist\workbox-5a5d9309.js
+docs
+docs\codebase
+docs\codebase\.codebase-scan.txt
+index.html
+package-lock.json
+package.json
+playwright-report
+playwright-report\index.html
+playwright.config.ts
+public
+public\.nojekyll
+public\icons
+public\icons\comiq_logo.svg
+public\manifest.webmanifest
+README.md
+scripts
+scripts\deploy
+scripts\deploy\deploy.mjs
+specs
+specs\001-comic-reader
+specs\001-comic-reader\checklists
+specs\001-comic-reader\checklists\requirements.md
+specs\001-comic-reader\contracts
+specs\001-comic-reader\contracts\archive-adapter-contract.md
+specs\001-comic-reader\contracts\reader-engine-contract.md
+specs\001-comic-reader\data-model.md
+specs\001-comic-reader\plan.md
+specs\001-comic-reader\quickstart.md
+specs\001-comic-reader\research.md
+specs\001-comic-reader\spec.md
+specs\001-comic-reader\tasks.md
+src
+src\app
+src\app\App.tsx
+src\components
+src\components\AppLayout.tsx
+src\components\ComicCard.tsx
+src\components\ErrorRecoveryCard.tsx
+src\components\FallbackBanner.tsx
+src\components\HamburgerMenu.tsx
+src\domain
+src\domain\archive
+src\domain\archive\archive-adapter-registry.ts
+src\domain\archive\archive-adapter.types.ts
+src\domain\archive\archive-utils.ts
+src\domain\archive\cbr-adapter.ts
+src\domain\archive\cbt-adapter.ts
+src\domain\archive\cbz-adapter.ts
+src\domain\library
+src\domain\library\capability-detection.service.ts
+src\domain\library\library-recovery.service.ts
+src\domain\library\library-scanner.service.ts
+src\domain\library\library-source.service.ts
+src\domain\library\thumbnail.service.ts
+src\domain\reader
+src\domain\reader\reader-engine.ts
+src\domain\reader\reader-engine.types.ts
+src\domain\reader\reader-error.service.ts
+src\features
+src\features\home
+src\features\home\HomeView.tsx
+src\features\library
+src\features\library\LibraryGrid.tsx
+src\features\library\LibrarySourceManager.tsx
+src\features\library\LibraryView.tsx
+src\features\library\RecentlyReadSection.tsx
+src\features\quick-read
+src\features\quick-read\QuickReadView.tsx
+src\features\reader
+src\features\reader\PageFlipReader.tsx
+src\features\reader\ReaderControls.tsx
+src\features\reader\ReaderView.tsx
+src\features\settings
+src\features\settings\SettingsView.tsx
+src\hooks
+src\hooks\useSwipe.ts
+src\index.css
+src\main.tsx
+src\persistence
+src\persistence\db.ts
+src\persistence\library-comic.repository.ts
+src\persistence\library-source.repository.ts
+src\persistence\quick-read-session.store.ts
+src\persistence\reader-preference.repository.ts
+src\persistence\reading-progress.repository.ts
+
+=== STACK DETECTION (manifest files) ===
+
+--- package-lock.json ---
+{
+  "name": "comiq",
+  "version": "0.1.0",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {
+    "": {
+      "name": "comiq",
+      "version": "0.1.0",
+      "dependencies": {
+        "dexie": "^4.4.2",
+        "fflate": "^0.8.2",
+        "js-untar": "^2.0.0",
+        "react": "^19.2.5",
+        "react-dom": "^19.2.5",
+        "react-router-dom": "^7.14.2",
+        "uuid": "^14.0.0",
+        "vite-plugin-pwa": "^1.2.0"
+      },
+      "devDependencies": {
+        "@playwright/test": "^1.59.1",
+        "@tailwindcss/vite": "^4.2.4",
+        "@testing-library/jest-dom": "^6.9.1",
+        "@testing-library/react": "^16.3.2",
+        "@testing-library/user-event": "^14.6.1",
+        "@types/node": "^25.6.0",
+        "@types/react": "^19.2.14",
+        "@types/react-dom": "^19.2.3",
+        "@types/uuid": "^10.0.0",
+        "@vitejs/plugin-react": "^6.0.1",
+        "@vitest/coverage-v8": "^4.1.5",
+        "fake-indexeddb": "^6.2.5",
+        "gh-pages": "^6.3.0",
+        "jsdom": "^29.1.0",
+        "tailwindcss": "^4.2.4",
+        "typescript": "^6.0.3",
+        "vite": "^8.0.10",
+        "vitest": "^4.1.5"
+      }
+    },
+    "node_modules/@adobe/css-tools": {
+      "version": "4.4.4",
+      "resolved": "https://registry.npmjs.org/@adobe/css-tools/-/css-tools-4.4.4.tgz",
+      "integrity": "sha512-Elp+iwUx5rN5+Y8xLt5/GRoG20WGoDCQ/1Fb+1LiGtvwbDavuSk0jhD/eZdckHAuzcDzccnkv+rEjyWfRx18gg==",
+      "dev": true,
+      "license": "MIT"
+    },
+    "node_modules/@apideck/better-ajv-errors": {
+      "version": "0.3.7",
+      "resolved": "https://registry.npmjs.org/@apideck/better-ajv-errors/-/better-ajv-errors-0.3.7.tgz",
+      "integrity": "sha512-TajUJwGWbDwkCx/CZi7tRE8PVB7simCvKJfHUsSdvps+aTM/PDPP4gkLmKnc+x3CE//y9i/nj74GqdL/hwk7Iw==",
+      "license": "MIT",
+      "dependencies": {
+        "jsonpointer": "^5.0.1",
+        "leven": "^3.1.0"
+      },
+      "engines": {
+        "node": ">=10"
+      },
+      "peerDependencies": {
+        "ajv": ">=8"
+      }
+    },
+    "node_modules/@asamuzakjp/css-color": {
+      "version": "5.1.11",
+      "resolved": "https://registry.npmjs.org/@asamuzakjp/css-color/-/css-color-5.1.11.tgz",
+      "integrity": "sha512-KVw6qIiCTUQhByfTd78h2yD1/00waTmm9uy/R7Ck/ctUyAPj+AEDLkQIdJW0T8+qGgj3j5bpNKK7Q3G+LedJWg==",
+      "dev": true,
+      "license": "MIT",
+      "dependencies": {
+        "@asamuzakjp/generational-cache": "^1.0.1",
+        "@csstools/css-calc": "^3.2.0",
+        "@csstools/css-color-parser": "^4.1.0",
+        "@csstools/css-parser-algorithms": "^4.0.0",
+        "@csstools/css-tokenizer": "^4.0.0"
+      },
+      "engines": {
+        "node": "^20.19.0 || ^22.12.0 || >=24.0.0"
+      }
+    },
+
+[TRUNCATED] Showing first 80 of 7965 lines.
+--- package.json ---
+{
+  "name": "comiq",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:unit": "vitest run --reporter=verbose",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "deploy": "npm run build && gh-pages -d dist"
+  },
+  "dependencies": {
+    "dexie": "^4.4.2",
+    "fflate": "^0.8.2",
+    "js-untar": "^2.0.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "react-router-dom": "^7.14.2",
+    "uuid": "^14.0.0",
+    "vite-plugin-pwa": "^1.2.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "@tailwindcss/vite": "^4.2.4",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@types/uuid": "^10.0.0",
+    "@vitejs/plugin-react": "^6.0.1",
+    "@vitest/coverage-v8": "^4.1.5",
+    "fake-indexeddb": "^6.2.5",
+    "gh-pages": "^6.3.0",
+    "jsdom": "^29.1.0",
+    "tailwindcss": "^4.2.4",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.10",
+    "vitest": "^4.1.5"
+  }
+}
+
+
+=== ENTRY POINTS ===
+No common entry points found. Check 'main' or 'scripts.start' in manifest files above.
+
+=== LINTING AND FORMATTING CONFIG ===
+Found: tsconfig.json
+
+=== ENVIRONMENT VARIABLE TEMPLATES ===
+No .env.example or .env.template found. Identify required environment variables by searching the code and config for environment variable reads.
+
+=== TODO / FIXME / HACK (production code only, test dirs excluded) ===
+.agents\skills\acquire-codebase-knowledge\scripts\scan.py:28: TODO_LIMIT = 60
+.agents\skills\acquire-codebase-knowledge\scripts\scan.py:291: """Search for TODO/FIXME/HACK comments."""
+.agents\skills\acquire-codebase-knowledge\scripts\scan.py:291: """Search for TODO/FIXME/HACK comments."""
+.agents\skills\acquire-codebase-knowledge\scripts\scan.py:291: """Search for TODO/FIXME/HACK comments."""
+.agents\skills\acquire-codebase-knowledge\scripts\scan.py:293: patterns = ["TODO", "FIXME", "HACK"]
+.agents\skills\acquire-codebase-knowledge\scripts\scan.py:293: patterns = ["TODO", "FIXME", "HACK"]
+.agents\skills\acquire-codebase-knowledge\scripts\scan.py:293: patterns = ["TODO", "FIXME", "HACK"]
+.agents\skills\acquire-codebase-knowledge\scripts\scan.py:320: return todos[:TODO_LIMIT]
+.agents\skills\acquire-codebase-knowledge\scripts\scan.py:617: # TODOs
+.agents\skills\acquire-codebase-knowledge\scripts\scan.py:620: print_section("TODO / FIXME / HACK (production code only, test dirs excluded)", todos, output_file)
+.agents\skills\acquire-codebase-knowledge\scripts\scan.py:620: print_section("TODO / FIXME / HACK (production code only, test dirs excluded)", todos, output_file)
+.agents\skills\acquire-codebase-knowledge\scripts\scan.py:620: print_section("TODO / FIXME / HACK (production code only, test dirs excluded)", todos, output_file)
+.agents\skills\acquire-codebase-knowledge\scripts\scan.py:622: print_section("TODO / FIXME / HACK (production code only, test dirs excluded)", ["None found."], output_file)
+.agents\skills\acquire-codebase-knowledge\scripts\scan.py:622: print_section("TODO / FIXME / HACK (production code only, test dirs excluded)", ["None found."], output_file)
+.agents\skills\acquire-codebase-knowledge\scripts\scan.py:622: print_section("TODO / FIXME / HACK (production code only, test dirs excluded)", ["None found."], output_file)
+dev-dist\workbox-5a5d9309.js:787: // TODO(philipwalton): TypeScript errors without this typecast for
+dev-dist\workbox-5a5d9309.js:1162: // TODO: Remove this log message in v4.
+dev-dist\workbox-5a5d9309.js:1358: // TODO: `state` should never be undefined...
+dev-dist\workbox-5a5d9309.js:1370: // TODO: `state` should never be undefined...
+dev-dist\workbox-5a5d9309.js:2012: // TODO(philipwalton): the `__WB_REVISION__` param is a precaching
+dev-dist\workbox-5a5d9309.js:2102: // TODO(philipwalton): not sure why `any` is needed. It seems like
+dev-dist\workbox-5a5d9309.js:2124: // TODO(philipwalton): not sure why `any` is needed. It seems like
+
+=== GIT RECENT COMMITS (last 20) ===
+7453a24 fix: correct type assertion for showDirectoryPicker in capability detection
+6a348c2 feat: add CI/CD workflow for automated testing and deployment
+6f5d6f8 feat(tests): enhance contract tests for CBR and CBZ adapters, add reading progress repository tests
+3e94978 Remove obsolete test results file to clean up repository
+21b1074 feat(tests): add comprehensive test suite for library and quick-read features
+0f6b438 feat: Add initial specs and tasks for Modern Comic Reader project
+7a9225e Add CLAUDE.md
+5bf1cbc Move spec-kit files to correct location
+87000f9 specify init
+c0b3b37 - Add skills, agents and instructions - Included a new image asset for visual reference.
+d4dab3b Initial commit
+
+=== HIGH-CHURN FILES (last 90 days, top 20) ===
+   3 README.md
+   2 src/domain/library/capability-detection.service.ts
+   2 tests/contract/cbr-adapter.contract.test.ts
+   2 tests/contract/cbz-adapter.contract.test.ts
+   2 tests/contract/reader-engine.contract.test.ts
+   2 tests/e2e/accessibility-audit.spec.ts
+   2 tests/e2e/quickstart-validation.spec.ts
+   2 .gitignore
+   2 dev-dist/registerSW.js
+   2 dev-dist/sw.js
+   2 dev-dist/workbox-5a5d9309.js
+   2 test-results/.last-run.json
+   2 specs/001-comic-reader/tasks.md
+   2 .github/copilot-instructions.md
+   2 .specify/memory/constitution.md
+   2 .specify/templates/plan-template.md
+   2 .specify/templates/spec-template.md
+   2 .specify/templates/tasks-template.md
+   1 .github/workflows/ci.yml
+   1 tests/contract/reading-progress.contract.test.ts
+
+=== MONOREPO SIGNALS ===
+No monorepo signals detected.
+
+=== CODE METRICS ===
+Total files scanned: 212
+Total lines of code: 17891
+
+Files by language:
+  Other: 137
+  TypeScript: 50
+  TypeScript/React: 21
+  JavaScript: 3
+  Python: 1
+
+Top 10 largest files:
+assests\image.png: 939.4KB
+playwright-report\index.html: 543.5KB
+package-lock.json: 290.3KB
+public\icons\comiq_logo.svg: 266.1KB
+assests\logo.png: 199.4KB
+dev-dist\workbox-5a5d9309.js: 126.4KB
+.github\instructions\github-actions-ci-cd-best-practices.instructions.md: 53.0KB
+.agents\skills\web-coder\references\glossary.md: 48.6KB
+.github\instructions\security-and-owasp.instructions.md: 29.7KB
+.github\instructions\a11y.instructions.md: 27.0KB
+
+=== CI/CD PIPELINES ===
+CI/CD: GitHub Actions
+
+=== CONTAINERS & ORCHESTRATION ===
+No containerization configs detected.
+
+=== SECURITY & COMPLIANCE ===
+No security configs detected.
+
+=== PERFORMANCE & TESTING ===
+No performance testing configs detected.
+
+=== SCAN COMPLETE ===
