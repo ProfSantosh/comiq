@@ -117,6 +117,36 @@ describe('CBZ Adapter Contract', () => {
       expect(page.data).toBeInstanceOf(ArrayBuffer)
       expect(page.data.byteLength).toBeGreaterThan(0)
     })
+
+    it('throws for an out-of-range page index', async () => {
+      const blob = makeCbzBlob([{ name: 'page001.jpg', content: TINY_PNG }])
+      const manifest = await adapter.open({
+        format: 'cbz',
+        fileName: 'test.cbz',
+        fileSizeBytes: blob.size,
+        source: blob,
+      })
+      await expect(adapter.extractPage({ manifest, pageIndex: 99 })).rejects.toThrow(/invalid page index/i)
+    })
+
+    it('throws when entry kind is not "page"', async () => {
+      const blob = makeCbzBlob([
+        { name: 'page001.jpg', content: TINY_PNG },
+        { name: 'ComicInfo.xml', content: new Uint8Array([0x3c, 0x2f, 0x3e]) },
+      ])
+      const manifest = await adapter.open({
+        format: 'cbz',
+        fileName: 'test.cbz',
+        fileSizeBytes: blob.size,
+        source: blob,
+      })
+      // The unsupported entry is appended after page entries; craft a manifest pointing at it
+      const unsupportedEntry = manifest.pageEntries.find((e) => e.kind === 'unsupported')!
+      const manipulated = { ...manifest, pageEntries: [unsupportedEntry] }
+      await expect(adapter.extractPage({ manifest: manipulated, pageIndex: 0 })).rejects.toThrow(
+        /invalid page index/i,
+      )
+    })
   })
 
   describe('extractCover()', () => {

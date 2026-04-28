@@ -1,7 +1,24 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
+import 'fake-indexeddb/auto'
 import { ComiqReaderEngine } from '../../src/domain/reader/reader-engine'
 import type { ArchiveManifest } from '../../src/domain/archive/archive-adapter.types'
 import type { ReaderOpenRequest } from '../../src/domain/reader/reader-engine.types'
+
+// Mock the persistence layer so IndexedDB writes don't error in jsdom
+vi.mock('../../src/persistence/reading-progress.repository', () => ({
+  readingProgressRepository: {
+    upsert: vi.fn(async () => undefined),
+    getByComicId: vi.fn(async () => undefined),
+    deleteByComicId: vi.fn(async () => undefined),
+    deleteByComicIds: vi.fn(async () => undefined),
+  },
+  recentLibraryItemRepository: {
+    upsert: vi.fn(async () => undefined),
+    getAll: vi.fn(async () => []),
+    deleteByComicId: vi.fn(async () => undefined),
+    deleteByComicIds: vi.fn(async () => undefined),
+  },
+}))
 
 const FAKE_MANIFEST: ArchiveManifest = {
   format: 'cbz',
@@ -129,6 +146,86 @@ describe('ReaderEngine Contract', () => {
       await engine.open(makeOpenRequest())
       await engine.dispose()
       expect(() => engine.getSnapshot()).toThrow(/not open/i)
+    })
+  })
+
+  describe('getSnapshot() before open', () => {
+    it('throws when called before open()', () => {
+      expect(() => engine.getSnapshot()).toThrow(/not open/i)
+    })
+  })
+
+  describe('persistProgress() — branch coverage', () => {
+    it('is a no-op when called before open (early return branch)', async () => {
+      // _request and _manifest are null — must not throw
+      await expect(engine.persistProgress()).resolves.toBeUndefined()
+    })
+
+    it('persists progress in library entry mode', async () => {
+      const { readingProgressRepository, recentLibraryItemRepository } = await import(
+        '../../src/persistence/reading-progress.repository'
+      )
+      await engine.open(
+        makeOpenRequest({
+          entryMode: 'library',
+          comicId: 'lib-comic-001',
+          initialPage: 2,
+        }),
+      )
+      await engine.persistProgress()
+      expect(readingProgressRepository.upsert).toHaveBeenCalledWith(
+        expect.objectContaining({ comicId: 'lib-comic-001', currentPage: 2 }),
+      )
+      expect(recentLibraryItemRepository.upsert).toHaveBeenCalledWith('lib-comic-001')
+    })
+
+    it('persists progress in quick-read entry mode via sessionStorage', async () => {
+      // Pre-seed a quick-read session so the store has data to update
+      sessionStorage.setItem(
+        'comiq:quick-read-session',
+        JSON.stringify({
+          sessionId: 'qr-session-abc',
+          fileName: 'test.cbz',
+          fileFingerprint: 'abc123',
+          extension: 'cbz',
+          currentPage: 0,
+          pageCountSnapshot: 5,
+          openedAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+        }),
+      )
+      await engine.open(
+        makeOpenRequest({ entryMode: 'quick-read', quickReadSessionId: 'qr-session-abc' }),
+      )
+      await engine.goToPage(3)
+      await engine.persistProgress()
+      const raw = sessionStorage.getItem('comiq:quick-read-session')
+      const session = JSON.parse(raw ?? '{}')
+      expect(session.currentPage).toBe(3)
+      sessionStorage.clear()
+    })
+  })
+
+  describe('open() — quick-read session restore', () => {
+    it('restores currentPage from a matching quick-read session', async () => {
+      sessionStorage.setItem(
+        'comiq:quick-read-session',
+        JSON.stringify({
+          sessionId: 'restore-session',
+          fileName: 'test.cbz',
+          fileFingerprint: 'def456',
+          extension: 'cbz',
+          currentPage: 4,
+          pageCountSnapshot: 5,
+          openedAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+        }),
+      )
+      const snap = await engine.open(
+        makeOpenRequest({ entryMode: 'quick-read', quickReadSessionId: 'restore-session' }),
+      )
+      expect(snap.currentPage).toBe(4)
+      sessionStorage.clear()
     })
   })
 })

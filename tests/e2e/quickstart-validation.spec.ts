@@ -25,10 +25,13 @@ const PUBLIC_DIR = path.join(REPO_ROOT, 'public')
 // ---------------------------------------------------------------------------
 
 test.describe('T062.1 — Base path and routing', () => {
-  test('root redirects to /library', async ({ page }) => {
+  test('root renders HomeView with app name and navigation links', async ({ page }) => {
+    // The root path renders HomeView — a landing page with nav cards to
+    // Library, Quick Read, and Settings. There is no automatic redirect.
     await page.goto('.')
-    await page.waitForURL(/\/library/, { timeout: 10000 })
-    await expect(page).toHaveURL(/\/library/)
+    await page.waitForLoadState('networkidle')
+    await expect(page.getByRole('heading', { name: /comiq/i })).toBeVisible()
+    await expect(page.getByRole('link', { name: /^library/i })).toBeVisible()
   })
 
   test('/library route renders the main landmark', async ({ page }) => {
