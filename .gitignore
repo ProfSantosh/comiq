@@ -138,7 +138,7 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
-# dist and build output
+# Playwright test results and reports
+playwright-report/*
 dev-dist/*
 test-results/*
-playwright-report/*
