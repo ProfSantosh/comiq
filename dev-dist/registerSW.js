@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) navigator.serviceWorker.register('/comiq/dev-sw.js?dev-sw', { scope: '/comiq/', type: 'classic' })
