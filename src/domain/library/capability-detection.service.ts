@@ -9,7 +9,7 @@ export function detectLibraryCapability(): LibraryCapabilityStatus {
     return { isSupported: false, reason: 'No browser environment detected.' }
   }
 
-  if (typeof (window as Record<string, unknown>)['showDirectoryPicker'] !== 'function') {
+  if (typeof (window as unknown as Record<string, unknown>)['showDirectoryPicker'] !== 'function') {
     return {
       isSupported: false,
       reason:
