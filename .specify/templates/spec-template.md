@@ -75,6 +75,33 @@
 - What happens when [boundary condition]?
 - How does system handle [error scenario]?
 
+## Constitution Alignment *(mandatory)*
+
+<!--
+  ACTION REQUIRED: Show how this feature complies with the project constitution.
+  Replace the prompts below with concrete, feature-specific statements.
+-->
+
+### Privacy and Processing
+
+- Describe how the feature keeps comic processing client-only.
+- Identify any optional network usage and justify why the core flow still works without it.
+
+### Persistence and Resume
+
+- Describe what MUST persist in IndexedDB and what remains session-scoped only.
+- Describe how resume state behaves in Library Mode and Quick Read.
+
+### Progressive Enhancement and Fallbacks
+
+- Describe Chromium-first behavior, unsupported capability handling, and Quick Read fallback.
+- Confirm whether the shared reader engine or archive adapter contracts change.
+
+### Performance and Validation
+
+- State the measurable responsiveness or loading expectations for the touched flow.
+- Identify the automated tests or executable checks that will prove the feature works.
+
 ## Requirements *(mandatory)*
 
 <!--

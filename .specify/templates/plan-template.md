@@ -31,7 +31,17 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- Confirm the feature preserves client-only processing with no required server upload,
+  account dependency, or network-only critical path.
+- Confirm durable state design: IndexedDB-backed persistence is identified for any library,
+  preference, or resume data, and Quick Read session continuity is defined if applicable.
+- Confirm progressive enhancement behavior: Chromium-first Library Mode capabilities,
+  non-Chromium Quick Read fallback, and shared reader engine implications are explicit.
+- Confirm performance checks for the touched flow, including large-archive handling,
+  reader responsiveness, loading strategy, and any cache or memory bounds.
+- Confirm validation scope: automated tests or executable checks cover shared reader
+  engine behavior, archive adapter contracts, persistence/resume behavior, and offline
+  app-shell impact where changed.
 
 ## Project Structure
 
